@@ -12,3 +12,9 @@ This project showcases docker, kubernetes, istio, grafana, prometheus, gitops, g
 - Remove the container used in the hands-on `docker ps -a` then `docker rm -f my-devops-blue`.
 - Clean out the images `docker images rm -f [image ID]`.
 #### Kubernetes
+- Make sure you have `minikube installed` and started `minikube start` before creating a deployment.
+- Create a deployment on kubernetes with the image `kubectl create deployment my-devops-blue --image [your-username]/devops-blue:1.0.0`.
+- Expose the service `kubectl expose deployment my-devops-blue --type LoadBalancer --port 8111 --name my-devops-blue-lb`.
+- Create a tunnel for the service in another tab for minikube `minikube tunnel`.
+- Scaling up the deployment `kubectl scale deployment my-devops-blue --replicas=3`.
+- Delete deployment `kubectl delete deployment my-devops-blue`.
